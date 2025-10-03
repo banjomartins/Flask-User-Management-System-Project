@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>All Users</h2>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th><th>Email</th><th>City</th><th>Hobby</th><th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+    <tr>
+      <td>{{ user.user_name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.city }}</td>
+      <td>{{ user.hobby }}</td>
+      <td>
+        <a href="/user/{{ user.id }}" class="btn btn-info btn-sm">View</a>
+        <a href="/delete/{{ user.id }}" class="btn btn-danger btn-sm">Delete</a>
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}
